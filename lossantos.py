@@ -3,9 +3,9 @@
 
     python lossantos.py check                         are the folders in config.json right, are the tools there
     python lossantos.py prepare                       once: build the tools, read collision / interiors / water from the game
-    python lossantos.py build sections|city|landmarks|big [--only D5,E5] [--force]
+    python lossantos.py build sections|city|big [--only D5,E5] [--force]
     python lossantos.py level NAME --region W,S,E,N [--spawn X,Y] [quality options]     a level of your own
-    python lossantos.py pack sections|city|landmarks|big                                 many levels -> one mod
+    python lossantos.py pack sections|city|big                                           many levels -> one mod
     python lossantos.py install NAME                  copy a pack or a level into ReSkate's Mods folder
     python lossantos.py model NAME --region W,S,E,N [--textures 512] [--detail 1]        an ordinary glTF 3D model
     python lossantos.py art                           the overview maps and mod icons
@@ -27,7 +27,6 @@ sys.path.insert(0, os.path.join(HERE, "tools"))
 LAYOUT = {            # name -> (layout file, kind, pack name)
     "sections": ("sections.json", "grid", "LosSantos_Sections"),
     "city": ("city.json", "grid", "LosSantos_City"),
-    "landmarks": ("city.json", "landmarks", "LosSantos_Landmarks"),
     "big": ("city.json", "big", "LosSantos_Big"),
 }
 OVERVIEW_REGION = "-2700,-3800,1900,1800"       # the city: the picture the loading screens and maps are cut from

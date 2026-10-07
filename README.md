@@ -16,10 +16,12 @@ Project page with maps of every level: see [`docs/`](docs/index.html).
 |---|---|---|---|---|
 | `sections` | 50 | 800 m | yes | the lightest: fastest loading and best frame rate, more level switches |
 | `city` | 16 | 1.4 km | yes | the same streets in fewer, larger levels (four of the small squares each) |
-| `landmarks` | 6 | 800 m to 1 km | yes | one famous place in the middle of a level |
 | `big` | 2 | 2 km | no | a clean canvas for your own rails and ramps, and the longest lines |
 
 Or any box of the map you like, with `level`.
+
+**Coming soon:** one custom combined map of GTA with all the popular skate spots in one place, made for servers.
+The separate landmark levels are not part of this release; that map replaces them.
 
 Why several layouts: all of Los Santos does not fit in one skate. level. The game has a fixed table of texture slots
 (20,480, about 8,000 used by the game itself) and a fixed mesh memory pool; one 2 km level of downtown with everything
