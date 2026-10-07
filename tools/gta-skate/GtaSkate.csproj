@@ -19,7 +19,7 @@
     <CodeWalkerBin>..\..\third_party\codewalker-bin</CodeWalkerBin>
   </PropertyGroup>
 
-  <!-- CodeWalker.Core (unmodified, commit 485d56b) as the DLL already built for Z:\LosSantosMC. -->
+  <!-- CodeWalker.Core (unmodified, commit 485d56b), prebuilt in third_party/codewalker-bin. -->
   <ItemGroup>
     <Reference Include="CodeWalker.Core">
       <HintPath>$(CodeWalkerBin)\CodeWalker.Core.dll</HintPath>

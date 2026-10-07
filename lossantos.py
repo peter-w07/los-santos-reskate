@@ -159,8 +159,8 @@ def cmd_install(args):
     shutil.copytree(src, tmp)
     shutil.rmtree(dst, ignore_errors=True)
     os.rename(tmp, dst)
-    trainer = src + ".trainer"                   # a pack's Trainer spots: one dot-folder per level
-    if os.path.isdir(trainer):
+    trainer = src + ".trainer"                   # a pack's Trainer spots: one dot-folder per level (many small folders)
+    if args.trainer and os.path.isdir(trainer):
         for d in os.listdir(trainer):
             shutil.rmtree(os.path.join(cfg.MODS, d), ignore_errors=True)
             shutil.copytree(os.path.join(trainer, d), os.path.join(cfg.MODS, d))
@@ -209,7 +209,9 @@ def main():
     p.add_argument("--far-view", type=float, default=0.03, help="detail of the distant city: 0.03 light ... 0.5 best")
     p.set_defaults(fn=cmd_level)
     p = sub.add_parser("pack"); p.add_argument("layout", choices=sorted(LAYOUT)); p.set_defaults(fn=cmd_pack)
-    p = sub.add_parser("install"); p.add_argument("name"); p.set_defaults(fn=cmd_install)
+    p = sub.add_parser("install"); p.add_argument("name")
+    p.add_argument("--trainer", action="store_true", help="also copy the Trainer spot folders of a pack (one small folder per level)")
+    p.set_defaults(fn=cmd_install)
     p = sub.add_parser("model"); p.add_argument("name"); p.add_argument("--region", required=True); quality(p, 512); p.set_defaults(fn=cmd_model)
     sub.add_parser("art").set_defaults(fn=cmd_art)
     args = ap.parse_args()

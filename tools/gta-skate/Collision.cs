@@ -5,7 +5,7 @@ using SharpDX;
 namespace GtaSkate;
 
 /// <summary>
-/// Collision for ReSkate Studio from the static collision tiles gta-export already wrote for Z:\LosSantosMC
+/// Collision for ReSkate Studio from the static collision tiles tools/gta-export writes
 /// (work/export/collision/tiles/*.lsct, 256 m, world space, a GTA material per triangle).
 ///
 /// Skate finds grindable edges itself, on creases of collision pieces, but drops that analysis for a piece
