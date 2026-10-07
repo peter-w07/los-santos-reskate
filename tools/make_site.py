@@ -25,7 +25,6 @@ AUTHOR = credits.AUTHOR
 DISCORD = credits.DISCORD
 GITHUB = credits.GITHUB
 REPO = credits.REPO
-INSTA = (f'<li><span>Instagram</span><a href="https://www.instagram.com/{credits.INSTAGRAM}/">@{credits.INSTAGRAM}</a></li>' if credits.INSTAGRAM else "")
 Image.MAX_IMAGE_PIXELS = None
 
 
@@ -296,7 +295,7 @@ python lossantos.py install LosSantos_City</pre></li>
       <p>I'm {e(AUTHOR)}. I built this over several days because I really love skate. and GTA, and I wanted to see the two together.</p>
       <p>It was made partly with the help of Claude, Anthropic's AI assistant, which wrote the exporter and the build tools; the direction, the testing and the many rebuilds were mine.</p>
       <ul class="social">
-        <li><span>Discord</span>{e(DISCORD)}</li>{INSTA}
+        <li><span>Discord</span>{e(DISCORD)}</li>
         <li><span>GitHub</span><a href="{e(GITHUB)}">{e(GITHUB.replace("https://", ""))}</a></li>
         <li><span>The tools</span><a href="{e(REPO)}">{e(REPO.replace("https://github.com/", ""))}</a></li>
       </ul>

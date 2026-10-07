@@ -77,43 +77,53 @@ WHY = [
 ]
 
 
-def build(p):
+# the author's own packs say "made by"; anyone else's say whose tools built them
+CREDIT = ([f"Made by {credits.AUTHOR} over several days, partly with the help of Claude (Anthropic's AI assistant), which wrote",
+           f"much of the code. Made for the love of skate. and GTA. The tools: [Los Santos for ReSkate]({credits.REPO})."]
+          if cfg.AUTHOR == credits.AUTHOR else
+          [f"Built by {cfg.AUTHOR or 'the owner'} with [Los Santos for ReSkate]({credits.REPO}), the tools by {credits.AUTHOR} (made over several",
+           "days, partly with the help of Claude, Anthropic's AI assistant, for the love of skate. and GTA)."])
+
+
+def build(p, readme_only=False):
     doc = json.load(open(os.path.join(cfg.LAYOUTS, p["src"]), encoding="utf-8"))
     out = os.path.join(WORK, doc.get("out", "mods"))
-    summary = json.load(open(os.path.join(out, "summary.json"), encoding="utf-8"))
+    summary = json.load(open(os.path.join(out, "summary.json"), encoding="utf-8")) if os.path.isfile(os.path.join(out, "summary.json")) else {}
     levels, missing = [], []
     for s in doc["sections"]:
         if s.get("skip") or not p["pick"](s):
             continue
         cell = f"{s['row']}{s['col']}"
         path = os.path.join(out, doc.get("mod", "LosSantos") + "_" + cell + "_" + re.sub(r"[^A-Za-z0-9]", "", s["name"].title())[:40])
-        (levels if os.path.isfile(os.path.join(path, "layout.toc")) else missing).append((cell, s, path))
+        (levels if readme_only or os.path.isfile(os.path.join(path, "layout.toc")) else missing).append((cell, s, path))
     if missing:
         print(f"{p['name']}: NOT BUILT, left out:", ", ".join(c for c, _, _ in missing), flush=True)
     if not levels:
         print(f"{p['name']}: nothing to merge", flush=True)
         return False
     pack = os.path.join(WORK, "pack", p["name"])
-    rc = subprocess.run([sys.executable, os.path.join(cfg.TOOLS, "merge_pack.py"), "--name", p["name"], "--force"] + [x for _, _, x in levels]).returncode
+    if readme_only and not os.path.isfile(os.path.join(pack, "layout.toc")):
+        print(f"{p['name']}: no such pack", flush=True)
+        return False
+    rc = 0 if readme_only else subprocess.run([sys.executable, os.path.join(cfg.TOOLS, "merge_pack.py"), "--name", p["name"], "--force"] + [x for _, _, x in levels]).returncode
     if rc != 0 or not os.path.isfile(os.path.join(pack, "layout.toc")):
         print(f"{p['name']}: MERGE FAILED (exit {rc})", flush=True)
         return False
     what = p["what"].format(n=len(levels))
-    desc = f"Los Santos for ReSkate: {what}. Built from the owner's own GTA V with the Los Santos for ReSkate tools."
+    desc = f"Los Santos for ReSkate: {what}. By {cfg.AUTHOR or 'the owner'}, built from their own GTA V with the Los Santos for ReSkate tools."
     json.dump({"name": p["name"], "author": cfg.AUTHOR or "unknown", "version_number": "1.0.0", "dependencies": [], "description": desc},
               open(os.path.join(pack, "manifest.json"), "w", encoding="utf-8", newline="\n"), indent=2)
     rows = []
     for cell, s, _ in levels:
         m = 0 if s.get("special") else float(s.get("margin", doc.get("margin", 100)))
-        rows.append(f"| LS-{cell} | {s['name']} | {s['x1'] - s['x0'] + 2 * m:.0f} x {s['y1'] - s['y0'] + 2 * m:.0f} m | {summary.get(cell, {}).get('size_mb', '?')} MB |")
+        rows.append(f"| LS-{cell} | {s['name']} | {s['x1'] - s['x0'] + 2 * m:.0f} x {s['y1'] - s['y0'] + 2 * m:.0f} m | {str(summary.get(cell, {}).get('size_mb', '')) + ' MB' if summary.get(cell, {}).get('size_mb') else ''} |")
     readme = [f"# {p['title']}", "", desc, "", f"![Map of the levels in this mod]({p['map']})", "",
               "The real GTA V map at 1:1, read from the owner's own game: buildings, roads, terrain, interiors, collision with",
               "the game's own surfaces, bus stops for fast travel, a pause-menu map and a loading picture per level.", ""] + p["notes"] + [""] + WHY + [
               "| Level | Area | Size | Before merging |", "|---|---|---|---|"] + rows + ["",
               "Built for one exact game version (the mod is stamped with it): rebuild after a game update.", "",
               "## Credits", "",
-              f"Built with [Los Santos for ReSkate]({credits.REPO}), the tools by {credits.AUTHOR} (made over several days, partly with",
-              "the help of Claude, Anthropic's AI assistant, for the love of skate. and GTA).", ""] + credits.lines() + [""]
+              ] + CREDIT + [""] + credits.lines() + [""]
     open(os.path.join(pack, "README.md"), "w", encoding="utf-8", newline="\n").write("\n".join(readme))
     src = os.path.join(WORK, "art", p["map"])
     if os.path.isfile(src):
@@ -127,7 +137,8 @@ def build(p):
 
 
 if __name__ == "__main__":
-    want = set(sys.argv[1:])
+    readme_only = "--readme" in sys.argv        # only rewrite the description files of packs that exist
+    want = set(a for a in sys.argv[1:] if not a.startswith("--"))
     for p in PACKS:
         if not want or p["name"] in want:
-            build(p)
+            build(p, readme_only)
