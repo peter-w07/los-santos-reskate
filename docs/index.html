@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Los Santos for ReSkate</title>
+<meta name="description" content="The city of Los Santos as 68 levels for skate. with ReSkate, in three mods: small sections, city levels and big levels.">
+<style>
+  :root { --bg:#10141a; --panel:#18202a; --line:#2a3644; --ink:#eef2f6; --soft:#aeb9c6; --mark:#ffc42e; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.6 "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif; }
+  a { color:var(--mark); }
+  img { max-width:100%; height:auto; display:block; }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 20px; }
+  header { padding:56px 0 28px; }
+  header .eyebrow { letter-spacing:.2em; text-transform:uppercase; color:var(--soft); font-size:14px; margin:0; }
+  h1 { font-size:clamp(40px, 8vw, 84px); line-height:1; margin:.1em 0 .25em; letter-spacing:-.01em; text-wrap:balance; }
+  h1 span { color:var(--mark); }
+  header p.lead { font-size:20px; color:var(--soft); max-width:46em; margin:0; }
+  nav { display:flex; flex-wrap:wrap; gap:8px 18px; margin:22px 0 0; font-size:15px; }
+  nav a { color:var(--ink); text-decoration:none; border-bottom:2px solid var(--line); padding-bottom:2px; }
+  nav a:hover { border-color:var(--mark); }
+  .hero { border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:28px 0 0; }
+  section.block { padding:44px 0 8px; }
+  h2 { font-size:30px; margin:0 0 .5em; text-wrap:balance; }
+  h3 { font-size:22px; margin:0 0 .3em; }
+  h3 small { font-size:15px; font-weight:400; color:var(--soft); margin-left:.4em; }
+  p { margin:0 0 1em; max-width:46em; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(420px, 1fr)); gap:16px; }
+  .card { display:flex; gap:18px; background:var(--panel); border:1px solid var(--line); border-top:4px solid var(--c); border-radius:10px; padding:18px; }
+  .card .icon { border-radius:8px; flex:none; width:128px; height:128px; }
+  .card h3 { color:var(--c); }
+  .card p { margin:0 0 .5em; font-size:16px; }
+  .facts { display:flex; flex-wrap:wrap; gap:6px; }
+  .facts span { border:1px solid var(--line); border-radius:999px; padding:1px 10px; font-size:13.5px; color:var(--soft); white-space:nowrap; }
+  .who { color:var(--soft); }
+  code { font:14px Consolas, ui-monospace, monospace; color:var(--soft); overflow-wrap:anywhere; }
+  table { border-collapse:collapse; width:100%; margin:.4em 0 1.2em; font-size:16px; }
+  th, td { text-align:left; padding:9px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--soft); font-weight:600; font-size:14px; text-transform:uppercase; letter-spacing:.06em; }
+  .scroll { overflow-x:auto; }
+  .two { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:16px; }
+  .two > div { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:18px 20px; }
+  .two h3 { font-size:19px; }
+  .two p { font-size:16px; margin:0; }
+  .map { margin:0 0 34px; }
+  .map h3 { border-left:6px solid var(--c); padding-left:12px; }
+  .map img { border:1px solid var(--line); border-radius:10px; }
+  details { margin-top:10px; }
+  summary { cursor:pointer; color:var(--mark); }
+  .names { list-style:none; padding:0; margin:12px 0 0; display:grid; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); gap:4px 18px; font-size:15px; }
+  .names b { color:var(--soft); font-weight:600; margin-right:.3em; }
+  .soon { margin-top:16px; background:linear-gradient(135deg, #2a2110, var(--panel) 60%); border:1px solid #6b5416; border-left:6px solid var(--mark); border-radius:10px; padding:18px 22px; }
+  .soon .tag { margin:0 0 .2em; color:var(--mark); font-size:13.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; }
+  .soon p { margin:0; }
+  .button { display:inline-block; background:var(--mark); color:#161a20; font-weight:600; text-decoration:none; padding:9px 18px; border-radius:8px; }
+  .plain { margin:0 0 1.2em; padding-left:1.2em; max-width:46em; }
+  .plain li { margin:.25em 0; }
+  .steps { max-width:52em; padding-left:1.3em; }
+  .steps li { margin:0 0 1em; }
+  pre { background:#0b0e12; border:1px solid var(--line); border-radius:8px; padding:10px 14px; margin:.5em 0; overflow-x:auto; font:14.5px/1.5 Consolas, ui-monospace, monospace; color:#dfe6ee; }
+  #build h3 { margin-top:1.4em; }
+  .about { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:22px 24px; }
+  .social { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; padding:0; list-style:none; }
+  .social li { border:1px solid var(--line); border-radius:8px; padding:8px 14px; }
+  .social span { color:var(--soft); font-size:14px; display:block; }
+  footer { color:var(--soft); font-size:14px; padding:36px 0 56px; }
+  @media (max-width:520px) { .card { flex-direction:column; } .cards { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">A map project by petergowild</p>
+    <h1>Los Santos <span>for ReSkate</span></h1>
+    <p class="lead">The whole city, street for street at 1:1, as 68 levels you can skate in skate. with ReSkate: from the airport up to the Vinewood hills and from Del Perro Pier across to Mirror Park.</p>
+    <nav>
+      <a href="#mods">The mods</a><a href="#soon">Coming soon</a><a href="#why">Why it is split</a><a href="#props">Props or no props</a>
+      <a href="#maps">Maps and level names</a><a href="#build">Build it yourself</a><a href="#around">Getting around</a><a href="#about">About</a>
+    </nav>
+    <div class="hero"><img src="img/overview.jpg" alt="Los Santos from above: downtown and the coast"></div>
+  </header>
+
+  <section class="block" id="mods">
+    <h2>Three mods, pick what suits you</h2>
+    <p>The city comes as three separate mods. They do not clash, so you can enable one, some or all of them.</p>
+    <div class="cards">
+      <article class="card" style="--c:#5aaaff">
+        <img class="icon" src="img/LosSantos_Sections_icon.png" alt="" width="128" height="128">
+        <div>
+          <h3>Sections</h3>
+          <p class="facts"><span>50 levels</span><span>800 m</span><span>With props</span><span>7.3 GB</span></p>
+          <p>The lightest way to play the city. Small levels load fast and keep the frame rate up; you switch level more often.</p>
+          <p class="who"><b>For:</b> Lower-end PCs, and anyone who wants the best frame rate.</p>
+          <p class="file"><code>LosSantos_Sections</code></p>
+        </div>
+      </article>
+      <article class="card" style="--c:#78dc50">
+        <img class="icon" src="img/LosSantos_City_icon.png" alt="" width="128" height="128">
+        <div>
+          <h3>City</h3>
+          <p class="facts"><span>16 levels</span><span>1.4 km</span><span>With props</span><span>5.3 GB</span></p>
+          <p>The same streets in fewer, larger levels: each one is four of the small squares put together.</p>
+          <p class="who"><b>For:</b> Most players. Long lines with far fewer loading screens.</p>
+          <p class="file"><code>LosSantos_City</code></p>
+        </div>
+      </article>
+      <article class="card" style="--c:#ff40c8">
+        <img class="icon" src="img/LosSantos_Big_icon.png" alt="" width="128" height="128">
+        <div>
+          <h3>Big</h3>
+          <p class="facts"><span>2 levels</span><span>2 km</span><span>No props</span><span>1.2 GB</span></p>
+          <p>Two huge levels with the street clutter taken out: a clean canvas of buildings, plazas, ledges and stairs.</p>
+          <p class="who"><b>For:</b> Building your own spots with the game&#x27;s builder, planning trick lines, and cruising a long way.</p>
+          <p class="file"><code>LosSantos_Big</code></p>
+        </div>
+      </article>
+    </div>
+    <div class="soon" id="soon">
+      <p class="tag">Coming soon</p>
+      <h3>One custom map with all the popular skate spots</h3>
+      <p>A combined map of GTA that brings the best-known skate spots of the city together in one place, built for servers, so a whole session can skate the highlights without changing level.</p>
+    </div>
+  </section>
+
+  <section class="block" id="why">
+    <h2>Why the city is split up</h2>
+    <p>All of Los Santos does not fit in one skate. level. The game has a fixed number of texture slots (20,480, and about 8,000 are used by the game itself) and a fixed amount of memory for meshes. A single 2&nbsp;km level of downtown with everything in it needed about 15,000 more textures and simply hung on loading.</p>
+    <p>So the city is cut into levels that each stay inside those limits. Bigger levels mean fewer loading screens, but more held in memory at once and a longer view to draw; smaller levels are the other way round. That trade is the whole reason there is more than one version.</p>
+    <div class="scroll"><table>
+      <tr><th>Mod</th><th>Level size</th><th>Props</th><th>What you gain</th><th>What it costs</th></tr>
+      <tr><td>Sections</td><td>800 m</td><td>Yes</td><td>Fastest loading, best frame rate</td><td>More level switches</td></tr>
+      <tr><td>City</td><td>1.4 km</td><td>Yes</td><td>Four times the area per level</td><td>Heavier; in the four densest levels the least visible textures are plain colours</td></tr>
+      <tr><td>Big</td><td>2 km</td><td>No</td><td>The longest lines without loading</td><td>No street furniture; the heaviest levels</td></tr>
+    </table></div>
+  </section>
+
+  <section class="block" id="props">
+    <h2>Props or no props</h2>
+    <p>Props are the loose street-level objects of the city: lamp posts, benches, bins, bollards, fences, signs, planters, and most trees and plants.</p>
+    <div class="two">
+      <div><h3>With props: Sections, City</h3><p>The streets as they really are, with everything standing where it stands in the original. Made for realistic skating: the spots are the ones the map gives you.</p></div>
+      <div><h3>Without props: Big</h3><p>A clean canvas. Every building, road, plaza, ledge and staircase is still there, but the clutter is gone, which is also what lets a 2&nbsp;km level fit. Made for dropping your own rails, ramps and objects with the game's builder, for planning trick lines, and for just messing around.</p></div>
+    </div>
+  </section>
+
+  <section class="block" id="maps">
+    <h2>Maps and level names</h2>
+    <p>Every level is named by its place on a grid: a letter for the row (north to south), a number for the column (west to east), then the district. Click a map to see it full size.</p>
+    
+      <section class="map" style="--c:#5aaaff">
+        <h3>Sections <small>50 levels, 800 m, with props</small></h3>
+        <a href="img/LosSantos_Sections_map.jpg"><img src="img/LosSantos_Sections_map.jpg" alt="Map of the Sections levels" loading="lazy"></a>
+        <details><summary>All 50 level names</summary><ul class="names"><li><b>LS-A1</b> Banham Canyon</li><li><b>LS-A2</b> Richman Glen</li><li><b>LS-A3</b> Vinewood Hills W1</li><li><b>LS-A4</b> Vinewood Hills W2</li><li><b>LS-A5</b> Vinewood Hills Mid</li><li><b>LS-A6</b> Vinewood Hills E1</li><li><b>LS-A7</b> Vinewood Hills E2</li><li><b>LS-B1</b> Pacific Bluffs NW</li><li><b>LS-B2</b> Richman</li><li><b>LS-B3</b> Rockford Hills N</li><li><b>LS-B4</b> West Vinewood</li><li><b>LS-B5</b> Downtown Vinewood</li><li><b>LS-B6</b> Vinewood Hills SE</li><li><b>LS-B7</b> Tataviam N</li><li><b>LS-C1</b> Pacific Bluffs SW</li><li><b>LS-C2</b> Pacific Bluffs SE</li><li><b>LS-C3</b> Rockford Hills S</li><li><b>LS-C4</b> Burton</li><li><b>LS-C5</b> Alta</li><li><b>LS-C6</b> East Vinewood</li><li><b>LS-C7</b> Tataviam S</li><li><b>LS-D2</b> Del Perro Beach</li><li><b>LS-D3</b> Vespucci Canals</li><li><b>LS-D4</b> Little Seoul</li><li><b>LS-D5</b> Legion Square</li><li><b>LS-D6</b> La Mesa N</li><li><b>LS-D7</b> Murrieta Heights</li><li><b>LS-E2</b> Vespucci Beach</li><li><b>LS-E3</b> La Puerta W</li><li><b>LS-E4</b> La Puerta E</li><li><b>LS-E5</b> Strawberry</li><li><b>LS-E6</b> La Mesa S</li><li><b>LS-E7</b> El Burro Heights N</li><li><b>LS-F2</b> Airport NW</li><li><b>LS-F3</b> Airport NE</li><li><b>LS-F4</b> Maze Bank Arena</li><li><b>LS-F5</b> Banning</li><li><b>LS-F6</b> Cypress Flats N</li><li><b>LS-F7</b> El Burro Heights Mid</li><li><b>LS-G2</b> Airport W</li><li><b>LS-G3</b> Airport E</li><li><b>LS-G4</b> Elysian Island NW</li><li><b>LS-G5</b> Elysian Island NE</li><li><b>LS-G6</b> Cypress Flats S</li><li><b>LS-G7</b> El Burro Heights S</li><li><b>LS-H2</b> Airport SW</li><li><b>LS-H3</b> Airport SE</li><li><b>LS-H5</b> Elysian Island SE</li><li><b>LS-H6</b> Terminal W</li><li><b>LS-H7</b> Terminal E</li></ul></details>
+      </section>
+      <section class="map" style="--c:#78dc50">
+        <h3>City <small>16 levels, 1.4 km, with props</small></h3>
+        <a href="img/LosSantos_City_map.jpg"><img src="img/LosSantos_City_map.jpg" alt="Map of the City levels" loading="lazy"></a>
+        <details><summary>All 16 level names</summary><ul class="names"><li><b>LS-A1</b> Richman</li><li><b>LS-A2</b> Rockford Hills</li><li><b>LS-A3</b> Vinewood</li><li><b>LS-A4</b> Racetrack</li><li><b>LS-B1</b> Del Perro</li><li><b>LS-B2</b> Little Seoul</li><li><b>LS-B3</b> Legion Square</li><li><b>LS-B4</b> Murrieta Heights</li><li><b>LS-C1</b> Vespucci Beach</li><li><b>LS-C2</b> La Puerta</li><li><b>LS-C3</b> Strawberry</li><li><b>LS-C4</b> El Burro Heights</li><li><b>LS-D1</b> Airport West</li><li><b>LS-D2</b> Airport East</li><li><b>LS-D3</b> Elysian Island</li><li><b>LS-D4</b> Terminal</li></ul></details>
+      </section>
+      <section class="map" style="--c:#ff40c8">
+        <h3>Big <small>2 levels, 2 km, no props</small></h3>
+        <a href="img/LosSantos_Big_map.jpg"><img src="img/LosSantos_Big_map.jpg" alt="Map of the Big levels" loading="lazy"></a>
+        <details><summary>All 2 level names</summary><ul class="names"><li><b>LS-X1</b> North 2 km</li><li><b>LS-X2</b> South 2 km</li></ul></details>
+      </section>
+  </section>
+
+  <section class="block" id="around">
+    <h2>Getting around</h2>
+    <div class="two">
+      <div><h3>Levels overlap</h3><p>Neighbouring levels share a 200&nbsp;m strip, so you can skate a little way into the next level before you need to switch.</p></div>
+      <div><h3>Bus stops</h3><p>Each level has fast-travel stops for the districts inside it, and one at the edge towards every neighbour, named after it (for example "to LS-C3 (south)").</p></div>
+      <div><h3>Loading screens and the pause map</h3><p>Each level's loading screen shows it from above with its name and where it lies in the city, and the pause menu has a map of the level.</p></div>
+      <div><h3>Interiors</h3><p>The metro, tunnels, car parks and other interiors are in their real places, in every mod.</p></div>
+    </div>
+    <div class="hero"><img src="img/loading.jpg" alt="Example loading screen: Legion Square" loading="lazy"></div>
+  </section>
+
+  <section class="block" id="build">
+    <h2>Build it yourself</h2>
+    <p>The levels are made by a set of open tools that read <b>your own copy of GTA V</b> and write ReSkate levels. Nothing from the game is in the repository: you point the tools at your install and they build the levels on your PC. That also means you choose the area, the size and the quality.</p>
+    <p><a class="button" href="https://github.com/peter-w07/los-santos-reskate">The tools on GitHub</a></p>
+
+    <h3>What you need</h3>
+    <ul class="plain">
+      <li>GTA V installed (any PC version the tools can read), and skate. set up with <a href="https://github.com/Dingo-Shenanigans/ReSkate">ReSkate</a>.</li>
+      <li>ReSkate Studio, the map compiler from the ReSkate project.</li>
+      <li>The .NET 8 SDK and Python 3 (with Pillow and numpy), both free.</li>
+      <li>Disk space: about 7 GB for the one-time preparation, plus 0.1 to 1 GB per level.</li>
+    </ul>
+
+    <h3>The steps</h3>
+    <ol class="steps">
+      <li><b>Set your folders.</b> Copy <code>config.example.json</code> to <code>config.json</code> and fill in where GTA V, skate., ReSkate Studio and your ReSkate Mods folder are, and a work folder with room to spare.
+        <pre>python lossantos.py check</pre></li>
+      <li><b>Prepare, once.</b> Builds the tools and reads the collision, interiors and water of the map from your game (a few minutes).
+        <pre>python lossantos.py prepare</pre></li>
+      <li><b>Build levels.</b> Either one of the ready-made layouts shown on this page, all of it or only the squares you want,
+        <pre>python lossantos.py build sections
+python lossantos.py build city --only B3,C3
+python lossantos.py build big</pre>
+        or a level of your own, anywhere on the map:
+        <pre>python lossantos.py level Pier --region -2000,-1700,-1200,-700 --spawn -1630,-1010</pre></li>
+      <li><b>Pack and install.</b> Merge a layout into one mod (shared data is stored once) and copy it into your Mods folder.
+        <pre>python lossantos.py pack city
+python lossantos.py install LosSantos_City</pre></li>
+    </ol>
+
+    <h3>Choosing where</h3>
+    <p>A region is a box in the map's own coordinates, in metres: <code>--region west,south,east,north</code>. X grows to the east and Y to the north; Legion Square is at about (195, -934), the airport around (-1200, -2900), the Vinewood sign near (710, 1200). <code>--spawn x,y</code> is where you start; the tools put you on the nearest open road. The grid maps above are drawn in the same coordinates: the small squares are 600&nbsp;m, starting at x&nbsp;=&nbsp;-2500 in the west and y&nbsp;=&nbsp;1200 in the north.</p>
+
+    <h3>Choosing size and quality</h3>
+    <div class="scroll"><table>
+      <tr><th>Option</th><th>What it does</th><th>Guide</th></tr>
+      <tr><td><code>--region</code> size</td><td>How much of the map is in one level</td><td>800 m runs everywhere. 1.4 km is fine in most places and needs <code>--max-textures</code> downtown. 2 km needs <code>--no-props</code> as well.</td></tr>
+      <tr><td><code>--no-props</code></td><td>Leaves out street furniture and most plants</td><td>A clean canvas, and a far lighter level.</td></tr>
+      <tr><td><code>--no-interiors</code></td><td>Leaves out the metro, tunnels, car parks and shops</td><td>Saves textures where you do not need them.</td></tr>
+      <tr><td><code>--textures 256</code></td><td>Largest texture side in pixels</td><td>256 is the default; 512 is sharper and about three times the size.</td></tr>
+      <tr><td><code>--detail 1</code></td><td>Which of the game's model versions is used</td><td>0 is the best, 1 the default, 2 and 3 are lighter.</td></tr>
+      <tr><td><code>--max-textures 5400</code></td><td>Keeps the most visible textures and turns the rest into flat colours</td><td>The game has a fixed number of texture slots; about 5,400 per level is safe. The tools tell you how many a level has.</td></tr>
+      <tr><td><code>--far-view 0.03</code></td><td>How detailed the distant city is</td><td>0.03 is light; up to 0.5 looks better on open ground and costs memory.</td></tr>
+    </table></div>
+    <p>There is also <code>python lossantos.py model</code>, which writes any region, or the whole map, as an ordinary glTF 3D model for other uses.</p>
+  </section>
+
+  <section class="block" id="about">
+    <h2>About</h2>
+    <div class="about">
+      <p>I'm petergowild. I built this over several days because I really love skate. and GTA, and I wanted to see the two together.</p>
+      <p>It was made partly with the help of Claude, Anthropic's AI assistant, which wrote the exporter and the build tools; the direction, the testing and the many rebuilds were mine.</p>
+      <ul class="social">
+        <li><span>Discord</span>petergowild</li>
+        <li><span>GitHub</span><a href="https://github.com/peter-w07">github.com/peter-w07</a></li>
+        <li><span>The tools</span><a href="https://github.com/peter-w07/los-santos-reskate">peter-w07/los-santos-reskate</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>A fan project. Not affiliated with or endorsed by Rockstar Games, Take-Two Interactive, Electronic Arts or Full Circle. Grand Theft Auto and skate. are trademarks of their owners.</p>
+  </footer>
+</div>
+</body>
+</html>

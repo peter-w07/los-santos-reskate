@@ -1,0 +1,529 @@
+{
+ "margin": 100,
+ "id": "lsc",
+ "mod": "LosSantosCity",
+ "out": "levels",
+ "max_textures": 5400,
+ "sections": [
+  {
+   "row": "A",
+   "col": 1,
+   "name": "Richman",
+   "x0": -2500,
+   "y0": 0,
+   "x1": -1300,
+   "y1": 1200,
+   "skip": false,
+   "extra_stops": [
+    "Banham Canyon:-2200,900",
+    "Richman Glen:-1600,900",
+    "Pacific Bluffs NW:-2200,300"
+   ],
+   "was": [
+    "A1",
+    "A2",
+    "B1",
+    "B2"
+   ],
+   "tris": 3486622
+  },
+  {
+   "row": "A",
+   "col": 2,
+   "name": "Rockford Hills",
+   "x0": -1300,
+   "y0": 0,
+   "x1": -100,
+   "y1": 1200,
+   "skip": false,
+   "extra_stops": [
+    "Vinewood Hills W1:-1000,900",
+    "Vinewood Hills W2:-400,900",
+    "Rockford Hills N:-1000,300",
+    "West Vinewood:-400,300"
+   ],
+   "was": [
+    "A3",
+    "A4",
+    "B3",
+    "B4"
+   ],
+   "tris": 7499629
+  },
+  {
+   "row": "A",
+   "col": 3,
+   "name": "Vinewood",
+   "x0": -100,
+   "y0": 0,
+   "x1": 1100,
+   "y1": 1200,
+   "skip": false,
+   "extra_stops": [
+    "Vinewood Hills Mid:200,900",
+    "Vinewood Hills E1:800,900",
+    "Downtown Vinewood:200,300",
+    "Vinewood Hills SE:800,300"
+   ],
+   "was": [
+    "A5",
+    "A6",
+    "B5",
+    "B6"
+   ],
+   "tris": 4197855
+  },
+  {
+   "row": "A",
+   "col": 4,
+   "name": "Racetrack",
+   "x0": 1100,
+   "y0": 0,
+   "x1": 1700,
+   "y1": 1200,
+   "skip": false,
+   "extra_stops": [
+    "Vinewood Hills E2:1400,900",
+    "Tataviam N:1400,300"
+   ],
+   "was": [
+    "A7",
+    "B7"
+   ],
+   "tris": 1218172
+  },
+  {
+   "row": "B",
+   "col": 1,
+   "name": "Del Perro",
+   "x0": -2500,
+   "y0": -1200,
+   "x1": -1300,
+   "y1": 0,
+   "skip": false,
+   "extra_stops": [
+    "Pacific Bluffs SW:-2200,-300",
+    "Pacific Bluffs SE:-1600,-300",
+    "Del Perro Beach:-1600,-900"
+   ],
+   "was": [
+    "C1",
+    "C2",
+    "D2"
+   ],
+   "tris": 4585136
+  },
+  {
+   "row": "B",
+   "col": 2,
+   "name": "Little Seoul",
+   "x0": -1300,
+   "y0": -1200,
+   "x1": -100,
+   "y1": 0,
+   "skip": false,
+   "extra_stops": [
+    "Little Seoul skate plaza:-860,-758",
+    "Rockford Hills S:-1000,-300",
+    "Burton:-400,-300",
+    "Vespucci Canals:-1000,-900"
+   ],
+   "was": [
+    "C3",
+    "C4",
+    "D3",
+    "D4"
+   ],
+   "tris": 8541844,
+   "spawn": "-860,-758"
+  },
+  {
+   "row": "B",
+   "col": 3,
+   "name": "Legion Square",
+   "x0": -100,
+   "y0": -1200,
+   "x1": 1100,
+   "y1": 0,
+   "skip": false,
+   "extra_stops": [
+    "La Mesa skate park:735,-1194,0,24.3",
+    "Alta:200,-300",
+    "East Vinewood:800,-300",
+    "La Mesa N:800,-900"
+   ],
+   "was": [
+    "C5",
+    "C6",
+    "D5",
+    "D6"
+   ],
+   "tris": 8706601,
+   "spawn": "195,-934"
+  },
+  {
+   "row": "B",
+   "col": 4,
+   "name": "Murrieta Heights",
+   "x0": 1100,
+   "y0": -1200,
+   "x1": 1700,
+   "y1": 0,
+   "skip": false,
+   "extra_stops": [
+    "Tataviam S:1400,-300"
+   ],
+   "was": [
+    "C7",
+    "D7"
+   ],
+   "tris": 1314402
+  },
+  {
+   "row": "C",
+   "col": 1,
+   "name": "Vespucci Beach",
+   "x0": -2500,
+   "y0": -2400,
+   "x1": -1300,
+   "y1": -1200,
+   "skip": false,
+   "extra_stops": [
+    "Vespucci Beach skate park:-1389,-1424",
+    "Airport NW:-1600,-2100"
+   ],
+   "was": [
+    "E2",
+    "F2"
+   ],
+   "tris": 534087,
+   "spawn": "-1389,-1424"
+  },
+  {
+   "row": "C",
+   "col": 2,
+   "name": "La Puerta",
+   "x0": -1300,
+   "y0": -2400,
+   "x1": -100,
+   "y1": -1200,
+   "skip": false,
+   "extra_stops": [
+    "La Puerta W:-1000,-1500",
+    "La Puerta E:-400,-1500",
+    "Airport NE:-1000,-2100",
+    "Maze Bank Arena:-400,-2100"
+   ],
+   "was": [
+    "E3",
+    "E4",
+    "F3",
+    "F4"
+   ],
+   "tris": 7335421
+  },
+  {
+   "row": "C",
+   "col": 3,
+   "name": "Strawberry",
+   "x0": -100,
+   "y0": -2400,
+   "x1": 1100,
+   "y1": -1200,
+   "skip": false,
+   "extra_stops": [
+    "La Mesa S:800,-1500",
+    "Banning:200,-2100",
+    "Cypress Flats N:800,-2100"
+   ],
+   "was": [
+    "E5",
+    "E6",
+    "F5",
+    "F6"
+   ],
+   "tris": 7999123
+  },
+  {
+   "row": "C",
+   "col": 4,
+   "name": "El Burro Heights",
+   "x0": 1100,
+   "y0": -2400,
+   "x1": 1700,
+   "y1": -1200,
+   "skip": false,
+   "extra_stops": [
+    "El Burro Heights N:1400,-1500",
+    "El Burro Heights Mid:1400,-2100"
+   ],
+   "was": [
+    "E7",
+    "F7"
+   ],
+   "tris": 1623740
+  },
+  {
+   "row": "D",
+   "col": 1,
+   "name": "Airport West",
+   "x0": -2500,
+   "y0": -3600,
+   "x1": -1300,
+   "y1": -2400,
+   "skip": false,
+   "extra_stops": [
+    "Airport W:-1600,-2700",
+    "Airport SW:-1600,-3300"
+   ],
+   "was": [
+    "G2",
+    "H2"
+   ],
+   "tris": 433788
+  },
+  {
+   "row": "D",
+   "col": 2,
+   "name": "Airport East",
+   "x0": -1300,
+   "y0": -3600,
+   "x1": -100,
+   "y1": -2400,
+   "skip": false,
+   "extra_stops": [
+    "Airport E:-1000,-2700",
+    "Elysian Island NW:-400,-2700",
+    "Airport SE:-1000,-3300"
+   ],
+   "was": [
+    "G3",
+    "G4",
+    "H3"
+   ],
+   "tris": 2277861
+  },
+  {
+   "row": "D",
+   "col": 3,
+   "name": "Elysian Island",
+   "x0": -100,
+   "y0": -3600,
+   "x1": 1100,
+   "y1": -2400,
+   "skip": false,
+   "extra_stops": [
+    "Elysian Island NE:200,-2700",
+    "Cypress Flats S:800,-2700",
+    "Elysian Island SE:200,-3300",
+    "Terminal W:800,-3300"
+   ],
+   "was": [
+    "G5",
+    "G6",
+    "H5",
+    "H6"
+   ],
+   "tris": 3968272
+  },
+  {
+   "row": "D",
+   "col": 4,
+   "name": "Terminal",
+   "x0": 1100,
+   "y0": -3600,
+   "x1": 1700,
+   "y1": -2400,
+   "skip": false,
+   "extra_stops": [
+    "El Burro Heights S:1400,-2700",
+    "Terminal E:1400,-3300"
+   ],
+   "was": [
+    "G7",
+    "H7"
+   ],
+   "tris": 830725
+  },
+  {
+   "row": "S",
+   "col": 1,
+   "zone": "Diamond Casino",
+   "name": "Diamond Casino",
+   "x0": 600,
+   "y0": -200,
+   "x1": 1600,
+   "y1": 600,
+   "land": 1.0,
+   "tris": 1873751,
+   "entities": 8838,
+   "skip": false,
+   "special": true,
+   "margin": 0,
+   "spawn": "925,45",
+   "extra_stops": [
+    "Vinewood Racetrack:1180,250"
+   ]
+  },
+  {
+   "row": "S",
+   "col": 2,
+   "zone": "Vinewood Sign",
+   "name": "Vinewood Sign",
+   "x0": 300,
+   "y0": 800,
+   "x1": 1100,
+   "y1": 1600,
+   "land": 1.0,
+   "tris": 804987,
+   "entities": 7877,
+   "skip": false,
+   "special": true,
+   "margin": 0,
+   "spawn": "710,1190",
+   "extra_stops": []
+  },
+  {
+   "row": "S",
+   "col": 3,
+   "zone": "Observatory",
+   "name": "Observatory",
+   "x0": -900,
+   "y0": 700,
+   "x1": -100,
+   "y1": 1500,
+   "land": 1.0,
+   "tris": 1370613,
+   "entities": 10321,
+   "skip": false,
+   "special": true,
+   "margin": 0,
+   "spawn": "-410,1180",
+   "extra_stops": []
+  },
+  {
+   "row": "S",
+   "col": 4,
+   "zone": "Mirror Park",
+   "name": "Mirror Park",
+   "x0": 800,
+   "y0": -1000,
+   "x1": 1600,
+   "y1": -200,
+   "land": 1.0,
+   "tris": 1783806,
+   "entities": 10037,
+   "skip": false,
+   "special": true,
+   "margin": 0,
+   "spawn": "1150,-600",
+   "extra_stops": []
+  },
+  {
+   "row": "S",
+   "col": 5,
+   "zone": "Del Perro Pier",
+   "name": "Del Perro Pier",
+   "x0": -2000,
+   "y0": -1700,
+   "x1": -1200,
+   "y1": -700,
+   "land": 1.0,
+   "tris": 2849941,
+   "entities": 7260,
+   "skip": false,
+   "special": true,
+   "margin": 0,
+   "spawn": "-1630,-1010",
+   "extra_stops": [
+    "Vespucci Beach skate park:-1389,-1424",
+    "Vespucci boardwalk:-1300,-1600"
+   ],
+   "export_options": [
+    "--level",
+    "0",
+    "--tree-level",
+    "0",
+    "--tex-cap",
+    "512"
+   ],
+   "compile_options": [
+    "--pause-map",
+    "2d",
+    "--no-gi",
+    "--no-lods",
+    "--vista-ratio",
+    "0.5",
+    "--vista-error",
+    "0.2"
+   ]
+  },
+  {
+   "row": "S",
+   "col": 6,
+   "zone": "Grove Street",
+   "name": "Grove Street",
+   "x0": -300,
+   "y0": -2300,
+   "x1": 500,
+   "y1": -1500,
+   "land": 1.0,
+   "tris": 3594257,
+   "entities": 11711,
+   "skip": false,
+   "special": true,
+   "margin": 0,
+   "spawn": "100,-1940",
+   "extra_stops": []
+  },
+  {
+   "row": "X",
+   "col": 1,
+   "name": "North 2 km",
+   "x0": -800,
+   "y0": -1600,
+   "x1": 1200,
+   "y1": 400,
+   "skip": false,
+   "special": true,
+   "margin": 0,
+   "spawn": "195,-934",
+   "extra_stops": [
+    "Diamond Casino:925,45",
+    "Vinewood Boulevard:300,200",
+    "Little Seoul:-700,-900",
+    "Mirror Park:1100,-650",
+    "Strawberry:250,-1450"
+   ],
+   "kind": "big level, no props",
+   "export_options": [
+    "--no-props"
+   ],
+   "max_textures": 5500
+  },
+  {
+   "row": "X",
+   "col": 2,
+   "name": "South 2 km",
+   "x0": -1900,
+   "y0": -3500,
+   "x1": 100,
+   "y1": -1500,
+   "skip": false,
+   "special": true,
+   "margin": 0,
+   "spawn": "-1030,-2730",
+   "extra_stops": [
+    "Grove Street:100,-1940",
+    "Maze Bank Arena:-250,-2000",
+    "Vespucci Beach:-1389,-1524",
+    "Airport runways:-1300,-3100"
+   ],
+   "kind": "big level, no props",
+   "export_options": [
+    "--no-props"
+   ],
+   "max_textures": 5500
+  }
+ ]
+}

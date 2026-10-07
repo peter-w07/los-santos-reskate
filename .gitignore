@@ -1,0 +1,14 @@
+# everything the tools write, and anything read from a game, stays out of the repository
+/build/
+/work/
+/config.json
+/CLAUDE.md
+/dev/
+/blender/
+/third_party/ReSkateStudio/
+/tools/gta-skate-next/
+/tools/gta-skate-prev/
+bin/
+obj/
+__pycache__/
+*.pdb

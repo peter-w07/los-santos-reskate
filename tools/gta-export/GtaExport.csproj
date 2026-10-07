@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RollForward>LatestMajor</RollForward>
+    <AssemblyName>gta-export</AssemblyName>
+    <RootNamespace>GtaExport</RootNamespace>
+    <Nullable>disable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ServerGarbageCollector>true</ServerGarbageCollector>
+    <ConcurrentGarbageCollection>true</ConcurrentGarbageCollection>
+    <TieredPGO>true</TieredPGO>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <NoWarn>$(NoWarn);CS0618;SYSLIB0021;SYSLIB0011</NoWarn>
+    <CodeWalkerBin>..\..\third_party\codewalker-bin</CodeWalkerBin>
+  </PropertyGroup>
+
+  <!-- CodeWalker.Core (unmodified, commit 485d56b), prebuilt in third_party/codewalker-bin. -->
+  <ItemGroup>
+    <Reference Include="CodeWalker.Core">
+      <HintPath>$(CodeWalkerBin)\CodeWalker.Core.dll</HintPath>
+    </Reference>
+    <PackageReference Include="SharpDX" Version="4.2.0" />
+    <PackageReference Include="SharpDX.Mathematics" Version="4.2.0" />
+    <None Include="$(CodeWalkerBin)\strings.txt" Link="strings.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="$(CodeWalkerBin)\ShadersGen9Conversion.xml" Link="ShadersGen9Conversion.xml" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>
