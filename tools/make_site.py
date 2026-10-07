@@ -19,10 +19,13 @@ import cfg  # noqa: E402
 WORK = cfg.WORK
 SITE = os.path.join(cfg.REPO, "docs")
 ART = os.path.join(WORK, "art")
-AUTHOR = "petergowild"
-DISCORD = "petergowild"                         # a user name, not a link
-GITHUB = "https://github.com/peter-w07"       # change here if the account is named differently
-REPO = "https://github.com/peter-w07/los-santos-reskate"     # the tools; change here if the repository is named differently
+import credits  # noqa: E402
+
+AUTHOR = credits.AUTHOR
+DISCORD = credits.DISCORD
+GITHUB = credits.GITHUB
+REPO = credits.REPO
+INSTA = (f'<li><span>Instagram</span><a href="https://www.instagram.com/{credits.INSTAGRAM}/">@{credits.INSTAGRAM}</a></li>' if credits.INSTAGRAM else "")
 Image.MAX_IMAGE_PIXELS = None
 
 
@@ -293,7 +296,7 @@ python lossantos.py install LosSantos_City</pre></li>
       <p>I'm {e(AUTHOR)}. I built this over several days because I really love skate. and GTA, and I wanted to see the two together.</p>
       <p>It was made partly with the help of Claude, Anthropic's AI assistant, which wrote the exporter and the build tools; the direction, the testing and the many rebuilds were mine.</p>
       <ul class="social">
-        <li><span>Discord</span>{e(DISCORD)}</li>
+        <li><span>Discord</span>{e(DISCORD)}</li>{INSTA}
         <li><span>GitHub</span><a href="{e(GITHUB)}">{e(GITHUB.replace("https://", ""))}</a></li>
         <li><span>The tools</span><a href="{e(REPO)}">{e(REPO.replace("https://github.com/", ""))}</a></li>
       </ul>

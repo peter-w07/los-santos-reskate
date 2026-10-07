@@ -1,5 +1,7 @@
 # Los Santos for ReSkate
 
+![Los Santos from above: downtown and the coast](docs/img/overview.jpg)
+
 Tools that turn **your own copy of GTA V** into levels for skate. running with
 [ReSkate](https://github.com/Dingo-Shenanigans/ReSkate): the city of Los Santos street for street at 1:1, with its
 interiors, collision, bus stops for fast travel, a pause-menu map and a loading picture per level.
@@ -8,15 +10,15 @@ interiors, collision, bus stops for fast travel, a pause-menu map and a loading 
 tools at your install, they read it (never write to it) and build the levels on your PC. That is also why you get to
 choose the area, the size and the quality.
 
-Project page with maps of every level: see [`docs/`](docs/index.html).
+**Project page, with the maps of every level:** <https://peter-w07.github.io/los-santos-reskate/>
 
 ## What you get
 
-| Layout | Levels | Level size | Props | For |
-|---|---|---|---|---|
-| `sections` | 50 | 800 m | yes | the lightest: fastest loading and best frame rate, more level switches |
-| `city` | 16 | 1.4 km | yes | the same streets in fewer, larger levels (four of the small squares each) |
-| `big` | 2 | 2 km | no | a clean canvas for your own rails and ramps, and the longest lines |
+| | Layout | Levels | Level size | Props | For |
+|---|---|---|---|---|---|
+| <img src="docs/img/LosSantos_Sections_icon.png" width="96" alt=""> | `sections` | 50 | 800 m | yes | the lightest: fastest loading and best frame rate, more level switches |
+| <img src="docs/img/LosSantos_City_icon.png" width="96" alt=""> | `city` | 16 | 1.4 km | yes | the same streets in fewer, larger levels (four of the small squares each) |
+| <img src="docs/img/LosSantos_Big_icon.png" width="96" alt=""> | `big` | 2 | 2 km | no | a clean canvas for your own rails and ramps, and the longest lines |
 
 Or any box of the map you like, with `level`.
 
@@ -28,6 +30,19 @@ Why several layouts: all of Los Santos does not fit in one skate. level. The gam
 in it needs about 15,000 more textures and hangs on loading. Bigger levels mean fewer loading screens but more in memory
 at once. "Props" are the loose street objects (lamp posts, benches, bins, fences, signs, most plants): with them the
 streets are as they really are; without them a level is far lighter and an open canvas for the game's builder.
+
+## The maps
+
+Every level is named by its place on a grid: a letter for the row (north to south), a number for the column (west to
+east), then the district. Click a map for the full picture.
+
+| Sections (50 levels, 800 m) | City (16 levels, 1.4 km) | Big (2 levels, 2 km, no props) |
+|---|---|---|
+| [<img src="docs/img/LosSantos_Sections_map.jpg" width="280" alt="Map of the 50 small sections">](docs/img/LosSantos_Sections_map.jpg) | [<img src="docs/img/LosSantos_City_map.jpg" width="280" alt="Map of the 16 city levels">](docs/img/LosSantos_City_map.jpg) | [<img src="docs/img/LosSantos_Big_map.jpg" width="280" alt="Map of the two big levels">](docs/img/LosSantos_Big_map.jpg) |
+
+Each level gets its own loading picture (the level from above, its name, where it lies in the city) and a pause-menu map:
+
+![Example loading picture: Legion Square](docs/img/loading.jpg)
 
 ## What you need
 
@@ -110,7 +125,12 @@ machine**; expect rough edges, and please open an issue with the log from the wo
 ## Credits and licence
 
 Made by **petergowild** over several days, for the love of skate. and GTA, partly with the help of Claude (Anthropic's
-AI assistant), which wrote much of the code. Discord: `petergowild`.
+AI assistant), which wrote much of the code.
+
+Find me here:
+
+- Discord: `petergowild`
+- GitHub: [peter-w07](https://github.com/peter-w07)
 
 - Code: GNU General Public License v3 or later, see [LICENSE](LICENSE). `tools/fbebx.py` and parts of
   `tools/merge_pack.py` are Python ports of code from ReSkate, which is GPL-3.

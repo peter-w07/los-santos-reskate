@@ -21,6 +21,7 @@ from PIL import Image
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import cfg  # noqa: E402
+import credits  # noqa: E402
 WORK = cfg.WORK
 PACKS = [
     dict(name="LosSantos_City", src="city.json", pick=lambda s: not s.get("special"), map="map_1_city_levels.png",
@@ -105,14 +106,14 @@ def build(p):
     for cell, s, _ in levels:
         m = 0 if s.get("special") else float(s.get("margin", doc.get("margin", 100)))
         rows.append(f"| LS-{cell} | {s['name']} | {s['x1'] - s['x0'] + 2 * m:.0f} x {s['y1'] - s['y0'] + 2 * m:.0f} m | {summary.get(cell, {}).get('size_mb', '?')} MB |")
-    readme = [f"# {p['title']}", "", desc, "",
+    readme = [f"# {p['title']}", "", desc, "", f"![Map of the levels in this mod]({p['map']})", "",
               "The real GTA V map at 1:1, read from the owner's own game: buildings, roads, terrain, interiors, collision with",
               "the game's own surfaces, bus stops for fast travel, a pause-menu map and a loading picture per level.", ""] + p["notes"] + [""] + WHY + [
               "| Level | Area | Size | Before merging |", "|---|---|---|---|"] + rows + ["",
               "Built for one exact game version (the mod is stamped with it): rebuild after a game update.", "",
               "## Credits", "",
-              "Built with Los Santos for ReSkate, the tools by petergowild (made over several days, partly with the help of",
-              "Claude, Anthropic's AI assistant, for the love of skate. and GTA).", ""]
+              f"Built with [Los Santos for ReSkate]({credits.REPO}), the tools by {credits.AUTHOR} (made over several days, partly with",
+              "the help of Claude, Anthropic's AI assistant, for the love of skate. and GTA).", ""] + credits.lines() + [""]
     open(os.path.join(pack, "README.md"), "w", encoding="utf-8", newline="\n").write("\n".join(readme))
     src = os.path.join(WORK, "art", p["map"])
     if os.path.isfile(src):
